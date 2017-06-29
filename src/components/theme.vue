@@ -7,7 +7,9 @@
 				<br>
 				<p>New.163.com</p>
 			</span>
-			<h1>{{$route.params.newTitle}}</h1>
+			<span>
+				<h1>{{$route.params.newTitle}}</h1>
+			</span>
 				<!-- {{$route.params.newId}}
 				{{$route.params.newTitle}} -->
 		</div>
@@ -92,21 +94,22 @@ import themeChild from './themeChild';
 		width: 100%;
 		height: 100%;
 		position: relative;
+		background: #fafafa;
 	}
 	.textInfo{
 		width: 100%;
 		height: 16%;
 		background: #4daf7c;		
 		position: fixed;
+		display: table;
 
 	}
 	.textInfo span {
-		float: left;
-		display: block;
-		width: 40%;
+		padding-left: 10px;
+		display: table-cell;
+		width: 50%;
 		/*border:1px solid red;*/
-		padding-top: 8%;
-		padding-left: 2%;
+		vertical-align:middle;
 
 	}
 	.textInfo span img{
@@ -128,16 +131,15 @@ import themeChild from './themeChild';
 		border-radius: 6px;
 		padding:1px 5px;
 		margin-top: 4%;
-		margin-left: 24%;
-		font-size: 0.8em;
+		margin-left: 20%;
+		font-size: 0.4em;
 
 	}
 	.textInfo h1{
 		float: right;
 		color:white;
 		font-size: 3em;
-		margin-top: 4%;
-		margin-right: 6%;
+		margin-right: 10%;
 	}
 	
 

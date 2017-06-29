@@ -31,8 +31,7 @@
 	.subsyance{
 		width: 96%;
 		margin:0 auto;
-		background: #fafafa;
-		padding-top:105px;
+		padding-top:28%;
 
 	}
 	.message{
@@ -62,7 +61,8 @@
 		margin-left: 10px;
 		float: left;
 		display: inline-block;
-		font-size: 0.8em;
+		font-size: 0.6em;
+		text-overflow:ellipsis; 
 		
 	}
 

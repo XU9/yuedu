@@ -1,12 +1,12 @@
 <template>
 	<div class="theNew">
-		<p>
-			{{textNew.name}}
-			<!-- {{$route.params.textTitle}}	 -->
-			<hr>
-			<div>{{textNew.Thenew}}</div>
-			<!-- {{textNew.Thenew}} -->
-		</p>
+		<div class="text">
+			<p>
+				<span>{{textNew.name}}</span>
+				<hr>
+				<div class="Left">{{textNew.Thenew}}</div>
+			</p>
+		</div>
 	</div>
 </template>
 <script>
@@ -23,15 +23,29 @@
 <style scoped>
 	.theNew{
 		position: absolute;
-		padding-top:90px;
+		padding-top:120px;
+		
 		
 	}
-	.theNew p{
+	.text{
+		width: 96%;	
 		/*border:1px solid red;*/
-		width: 96%;
 		margin:0 auto;
-		letter-spacing: 2px;
+	}
+	.theNew p{		
+		font-size: 2em;		
+		letter-spacing: 4px;
 		line-height: 24px;
 		padding-bottom: 20px;
+		text-align: center;
+	}
+	.theNew p span{
+		text-align: center;
+	}
+	.theNew .Left{
+		text-indent:35px;
+		margin-top: 10px;
+		font-size: 1em;
+		letter-spacing: 2px;
 	}
 </style>

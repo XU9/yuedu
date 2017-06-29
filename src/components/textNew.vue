@@ -1,10 +1,14 @@
 <template>
 	<div class="headNew">
 		<div class="headTop">
-			<img @click="getback" src="../assets/back.png" alt="">
-			<img class="img1" src="../assets/eye.png" alt="">
-			<b>网易新闻</b>
-			<span>http://New.163.com</span>
+			<div class="juzhong">
+				<img @click="getback" class="img2" src="../assets/back.png" alt="">
+					<div class="outer">
+						<img  src="../assets/eye.png" alt="">
+						<b>网易新闻</b>
+						<span>http://New.163.com</span>
+					</div>
+			</div>
 		</div>
 		<text-new-child :textNew='textNew'></text-new-child>
 	</div>
@@ -35,39 +39,42 @@ import textNewChild from "./textNewChild";
 <style scoped>
 	.headNew{
 		width: 100%;
-		height: 12%;
-		background:#4daf7c;
+		height: 100%;		
 	}
 	.headTop{
-		padding-top: 10PX;
-		width: 100%;
-		line-height: 60px;
-		/*border:1px solid red;*/
-		vertical-align: middle;
-		box-sizing: border-box;
-		z-index: 222;
-		position: fixed;
 		background:#4daf7c;
+		display: table;		
+		height: 16%;
+		width: 100%;
+		z-index:222;
+		box-sizing: border-box;		
+		position: fixed;
+	}
+	.juzhong{
+		display: table-cell;
+		vertical-align:middle;
 	}
 
-	.headTop img{
+	.headTop .juzhong img{
 		vertical-align: middle;
 		margin-left: 4%;
-
 	}
-	.headTop .img1{
-		margin-left: 12%;
+	.headTop .outer{
+		text-align: center;
 	}
-	.headTop b,span{
+	.headTop .juzhong .img2{
+		margin-top: -30px;
+	}
+	.headTop .juzhong b,span{
 		vertical-align: middle;
 	}
-	.headTop b{
-		font-size: 1.2em;
+	.headTop .juzhong b{
+		font-size:1em;
 		color:white;
 		letter-spacing: 2px;
 		font-weight: lighter ;
 	}
-	.headTop span{
+	.headTop .juzhong span{
 		padding:1px 5px;
 		height: 10px;
 		font-size: 0.1em;

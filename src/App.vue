@@ -6,8 +6,13 @@
 </template>
 
 <script>
+import store from '@/store/store';
+import Vue from 'vue';
+import VueResource from 'vue-resource';  
+Vue.use(VueResource) 
 export default {
-  name: 'app'
+  name: 'app',
+  store
 }
 </script>
 

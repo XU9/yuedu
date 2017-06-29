@@ -1,9 +1,10 @@
 <template>
 	<div class="allTag">
+	<!-- {{$store.getters.count}} -->
 		<div class="box">
 			<ul >
-				<li v-for="item in tagList" :class="{sign:item.status==1}" v-on:click="say(item)">
-					<p>{{item.titleTag}}</p>
+				<li  v-for="(item,index) in tagList" :class="{sign:item.status==1}" v-on:click="say(item)" >				
+					<p v-finger:long-tap="longTap" :id="index">{{item.titleTag}}</p>
 					<span><b>{{item.num}}</b>  new feeds </span> 
 				</li>
 			</ul>
@@ -11,18 +12,40 @@
 	</div>
 </template>
 <script>
+import Vue from 'vue'
+import AlloyFinger from 'alloyfinger/alloy_finger' // 手势库
+import AlloyFingerVue from 'alloyfinger/vue/alloy_finger.vue'
+Vue.use(AlloyFingerVue, {
+  AlloyFinger
+})
+var that;	
 	export default{
+
 		name:'allTag',
 		data(){
-			return{
+			return{		
+
 			}
 		},
 		props:['tagList'],		
 		methods:{
 			say(item){
-				// console.log(item);
+				console.log(item);
+				// item.status==1 ? item.status=0 : item.status=1;
 				this.$router.push('/theme/'+item.classify+'/'+item.titleTag);
-			}
+			},
+			shuanji(item){
+				item.status=item.status==1 ? 0 :1;
+			},
+			longTap(event) { 
+				this.tagList[event.target.id].status=this.tagList[event.target.id].status==1? 0 : 1;
+				localStorage.setItem("tagList", JSON.stringify(this.tagList));
+				that=this;	
+				setTimeout(function(){
+					that.$store.commit('count')
+				},300)
+
+			},
 		}
 	}
 

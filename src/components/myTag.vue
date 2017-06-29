@@ -4,7 +4,7 @@
 			<ul >
 				<li v-for="item in tagList" v-if="item.status==1" v-on:click="say(item)">
 					<p>{{item.titleTag}}</p>
-					<span><b>{{item.num}}</b>  new feeds </span> 
+					<span><b>{{item.num}}</b>  new feeds </span>
 				</li>
 			</ul>
 		</div>
@@ -15,6 +15,7 @@
 		name:'allTag',
 		data(){
 			return{
+				sum:0
 			}
 		},
 		props:['tagList'],

@@ -167,13 +167,12 @@
 	}
 	.headImg{
 		width: 100%;
-		height: 14%;
+		height: 16%;
 		background: #4daf7c;
 		border-bottom: 4px solid #409c6d;
 	}
 	.headImg img{
-		width: 50px;
-		height: 50px;
+		width: 40%;
 	}
 	.headImg a{
 		text-decoration: none;
@@ -186,7 +185,7 @@
 		border-right: 1px dotted #5bcd90;
 	}
 	.headImg a p{
-		font-size: 1.6em;
+		font-size: 1.2em;
 		color:#fff8cc;
 	}
 	.pick{

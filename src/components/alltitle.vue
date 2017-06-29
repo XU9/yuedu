@@ -27,7 +27,7 @@
 				<img src="../assets/peo.png" alt="">
 				<router-link to="/alltltle/mytag">
 					我的TAG
-					<p>{{number}}</p>
+					<p><!-- {{number}} -->{{$store.getters.count}}</p>
 				</router-link>
 			</div>
 			<div class="tag tagout">
@@ -56,139 +56,22 @@ import	titleTag from './allTag'
 				},
 			
 				weaterImg:'../static/weater.png',
-				number:3,
-				tagList:[
-					{	
-						status: 0,  //状态
-						see:0,		//看过
-						del:0,		//删除
-						like:0,		//喜欢
-						titleTag:"娱乐",//标题
-						classify:1,    //分类可以使用ID区分分类
-						num:32			//新增数量
-					},
-					{	
-						status: 1,
-						see:1,
-						del:0,
-						like:1,
-						titleTag:"社会",
-						classify:2,
-						num:23
-					},{	
-						status: 0,
-						see:1,
-						del:0,
-						like:0,
-						titleTag:"科技",
-						classify:3,
-						num:45
-					},{	
-						status: 1,
-						see:0,
-						del:0,
-						like:1,
-						titleTag:"教育",
-						classify:4,
-						num:6
-					},{	
-						status: 0,
-						see:0,
-						del:0,
-						titleTag:"体育",
-						classify:5,
-						num:19
-					},{	
-						status: 1,
-						see:0,
-						del:1,
-						like:0,
-						titleTag:"手机",
-						classify:6,
-						num:34
-					},{	
-						status: 0,
-						see:0,
-						del:1,
-						like:1,
-						titleTag:"游戏",
-						classify:7,
-						num:99
-					},{	
-						status: 0,
-						see:1,
-						del:0,
-						like:1,
-						titleTag:"女人",
-						classify:8,
-						num:123
-					},{	
-						status: 0,
-						see:0,
-						del:0,
-						like:0,
-						titleTag:"育儿",
-						classify:9,
-						num:19
-					},{	
-						status: 1,
-						see:0,
-						del:0,
-						like:1,
-						titleTag:"人文",
-						classify:10,
-						num:34
-					},{	
-						status: 0,
-						see:0,
-						del:1,
-						like:0,
-						titleTag:"资讯",
-						classify:11,
-						num:99
-					},{	
-						status: 0,
-						see:0,
-						del:0,
-						like:1,
-						titleTag:"动漫",
-						classify:12,
-						num:123
-					},{	
-						status: 0,
-						see:1,
-						del:0,
-						like:0,
-						titleTag:"教育",
-						classify:13,
-						num:19
-					},{	
-						status: 1,
-						see:0,
-						del:0,
-						like:0,
-						titleTag:"音乐",
-						classify:14,
-						num:34
-					},{	
-						status: 0,
-						see:0,
-						del:1,
-						like:0,
-						titleTag:"留学",
-						classify:15,
-						num:99
-					},{	
-						status: 0,
-						see:0,
-						del:0,
-						like:0,
-						titleTag:"电脑",
-						classify:16,
-						num:123
-					},
-				]
+				// number:3,
+				tagList:[]
+			
 			}
+		},
+		mounted(){
+			var tagList = JSON.parse(localStorage.getItem('tagList'));
+			if (tagList) {
+				this.$data.tagList = tagList
+			}else {
+				this.$http.get('http://118.89.156.82/yulin/taglist').then(function(res){ 
+		  		this.$data.tagList=res.body.tagList;
+		  		localStorage.setItem("tagList", JSON.stringify(this.$data.tagList)); 
+		      	}) 
+			}
+		 
 		},
 		components:{
 			titleTag
@@ -216,7 +99,7 @@ import	titleTag from './allTag'
 		height: 100%;
 	}
 	.info .infoL{
-		width: 65%;
+		width: 60%;
 		height: 100%;
 		box-sizing: border-box;
 		float: left;
@@ -224,8 +107,9 @@ import	titleTag from './allTag'
 	.info .infoL img{
 		margin-top: 8%;
 		margin-left:4%;
-		width: 80px;
-		height: 80px;
+		max-width:80px;
+		width: 34%;
+		/*height: 80%;*/
 		border-radius: 50%;
 		border-width:2px;
 		border-color: white;
@@ -233,50 +117,56 @@ import	titleTag from './allTag'
 		box-shadow: 0 0 1px 3px #46765c;
 		float: left;
 	}
+	.info span{
+		display: flex;
+		flex-direction: column;
+		padding-left: 10px;
+		/*border:1px solid red;*/
+		height: 100%;
+		justify-content:center;
+	}
 	span h1{
 		float: left;
 		color:white;
 		font-size: 1.4em;
-		margin-top: 12%	;
-		margin-left: 4%;
 	}
 	span p{
 		float: left;
 		color:white;
 		font-size:0.8em;
-		margin-left: 4%;
-		margin-top: 5px;
 	}
 	span p.text1{
-		margin-top: 5px;
 		font-size: 0.1em;
 	}
 	.infoR{
 		width: 35%;
 		height: 100%;
-		float: left;
+		float: right;
 		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		justify-content:center;
+		/*border:1px solid red;*/
 	}
 	.infoR img{
-		width: 75%;
-		height: 30%;
-		margin-top: 30%;
-		margin-left: 12%;
+		width: 90%;
+		
+
 	}
 	.bot{
 		width: 100%;
 		height: 24%;
-		/*border:1px solid red;*/
+		display: flex;
+		justify-content:space-around;
 
 	}
 	.bot .tag{
 		float: left;
-		width: 33%;
 		height: 100%;
 		border-right:1px solid white;
 		box-sizing: border-box;
 		color:white;
-		padding-top: 2%;	
+		padding: 2% 2% 0 0;	
 		text-align: center;	
 	}
 
@@ -295,16 +185,16 @@ import	titleTag from './allTag'
 
 	}
 	.bot .tag a p{
-		display: block;
-		text-align: center;
-		width: 16px;
-		line-height: 16px;
+		display: inline-block;
+		/*text-align: center;*/
+		width: 20px;
+		line-height: 20px;
 		background: red;
 		border-radius: 50%;
-		float: right;
+	/*	float: right;
 		margin-right: 6px;
 		margin-top: -4px;
-		font-size: 0.8em;
+		font-size: 0.8em;*/
 	}
 
 </style>
