@@ -82,6 +82,7 @@ import	titleTag from './allTag'
 	.alltit{
 		width: 100%;
 		height: 100%;
+		transition: all 2s;
 	}
 	.header{
 		width: 100%;

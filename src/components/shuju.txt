@@ -1,0 +1,176 @@
+themeChildTitle:[
+			 	{
+			 		classify:1,
+			 		textId:1,
+			 		title1:'今日大事件之娱乐',
+			 		mesPic:'../static/info1.png',
+			 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大东今日大东今日大今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
+			 	},
+			 	{
+			 		classify:1,
+			 		textId:2,
+			 		title1:'今日大事件之娱乐',
+			 		mesPic:'../static/info2.png',
+			 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
+			 	},
+			 	{
+			 		classify:2,
+			 		textId:23,
+			 		title1:'今日大事件之社会',
+			 		mesPic:'../static/info3.png',
+			 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
+			 	},
+			 	{
+			 		classify:3,
+			 		textId:123,
+			 		title1:'今日大事件之科技',
+			 		mesPic:'../static/info3.png',
+			 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
+			 	},
+			 	{
+			 		classify:4,
+			 		textId:1234,
+			 		title1:'今日大事件之教育',
+			 		mesPic:'../static/info3.png',
+			 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
+			 	},
+			 	{
+			 		classify:6,
+			 		textId:12345,
+			 		title1:'今日大事件之shouji',
+			 		mesPic:'../static/info3.png',
+			 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
+			 	}
+			 ]
+
+tagList:[ 
+		{	
+			status: 0,  //状态
+			see:0,		//看过
+			del:0,		//删除
+			like:0,		//喜欢
+			titleTag:"娱乐",//标题
+			classify:1,    //分类可以使用ID区分分类
+			num:32			//新增数量
+		},
+		{	
+			status: 1,
+			see:1,
+			del:0,
+			like:1,
+			titleTag:"社会",
+			classify:2,
+			num:23
+		},{	
+			status: 0,
+			see:1,
+			del:0,
+			like:0,
+			titleTag:"科技",
+			classify:3,
+			num:45
+		},{	
+			status: 1,
+			see:0,
+			del:0,
+			like:1,
+			titleTag:"教育",
+			classify:4,
+			num:6
+		},{	
+			status: 0,
+			see:0,
+			del:0,
+			titleTag:"体育",
+			classify:5,
+			num:19
+		},{	
+			status: 1,
+			see:0,
+			del:1,
+			like:0,
+			titleTag:"手机",
+			classify:6,
+			num:34
+		},{	
+			status: 0,
+			see:0,
+			del:1,
+			like:1,
+			titleTag:"游戏",
+			classify:7,
+			num:99
+		},{	
+			status: 0,
+			see:1,
+			del:0,
+			like:1,
+			titleTag:"女人",
+			classify:8,
+			num:123
+		},{	
+			status: 0,
+			see:0,
+			del:0,
+			like:0,
+			titleTag:"育儿",
+			classify:9,
+			num:19
+		},{	
+			status: 1,
+			see:0,
+			del:0,
+			like:1,
+			titleTag:"人文",
+			classify:10,
+			num:34
+		},{	
+			status: 0,
+			see:0,
+			del:1,
+			like:0,
+			titleTag:"资讯",
+			classify:11,
+			num:99
+		},{	
+			status: 0,
+			see:0,
+	 		del:0,
+	 		like:1,
+	 		titleTag:"动漫",
+	 		classify:12,
+	 		num:123
+	 	},{	
+	 		status: 0,
+	 		see:1,
+	 		del:0,
+	 		like:0,
+	 		titleTag:"教育",
+	 		classify:13,
+	 		num:19
+	 	},{	
+	 		status: 1,
+	 		see:0,
+	 		del:0,
+	 		like:0,
+	 		titleTag:"音乐",
+	 		classify:14,
+	 		num:34
+	 	},{	
+	 		status: 0,
+	 		see:0,
+	 		del:1,
+	 		like:0,
+	 		titleTag:"留学",
+	 		classify:15,
+			num:99
+		},{	
+			status: 0,
+			see:0,
+			del:0,
+			like:0,
+			titleTag:"电脑",
+			classify:16,
+			num:123
+		},
+	],

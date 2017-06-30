@@ -1,6 +1,6 @@
 <template>
 	<div class="allTag">
-	<!-- {{$store.getters.count}} -->
+	<!-- {{$store.getters.likeNum}} -->
 		<div class="box">
 			<ul >
 				<li  v-for="(item,index) in tagList" :class="{sign:item.status==1}" v-on:click="say(item)" >				
@@ -18,7 +18,7 @@ import AlloyFingerVue from 'alloyfinger/vue/alloy_finger.vue'
 Vue.use(AlloyFingerVue, {
   AlloyFinger
 })
-var that;	
+
 	export default{
 
 		name:'allTag',
@@ -40,10 +40,8 @@ var that;
 			longTap(event) { 
 				this.tagList[event.target.id].status=this.tagList[event.target.id].status==1? 0 : 1;
 				localStorage.setItem("tagList", JSON.stringify(this.tagList));
-				that=this;	
-				setTimeout(function(){
-					that.$store.commit('count')
-				},300)
+				this.$store.commit('count')
+
 
 			},
 		}

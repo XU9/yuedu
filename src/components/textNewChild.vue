@@ -1,10 +1,10 @@
 <template>
 	<div class="theNew">
-		<div class="text">
+		<div class="text" v-for="item in textNew" v-if="item.textId==$route.params.textId">
 			<p>
-				<span>{{textNew.name}}</span>
+				<span >{{item.title1}}</span>
 				<hr>
-				<div class="Left">{{textNew.Thenew}}</div>
+				<div class="Left">{{item.mesText }}</div>
 			</p>
 		</div>
 	</div>

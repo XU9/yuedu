@@ -4,7 +4,7 @@
 			<div class="message" v-if="item.classify==$route.params.classify" @click="totextnew(item)">			
 				<img v-bind:src='item.mesPic' alt="">
 				<p >{{item.title1}}</p>
-				<span >{{item.mesText}}</span>
+				<span>{{item.mesText}}</span>
 			</div>
 		</div>
 		</div>
@@ -57,12 +57,17 @@
 	}
 	.subsyance span{
 		width: 56%;
+		height: 64px;
+		/*border:1px solid red;*/
 		margin-top: 1%;
 		margin-left: 10px;
-		float: left;
+		/*float: left;*/
 		display: inline-block;
 		font-size: 0.6em;
-		text-overflow:ellipsis; 
+		overflow:hidden; 
+		text-overflow:ellipsis;
+
+
 		
 	}
 

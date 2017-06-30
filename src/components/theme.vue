@@ -1,6 +1,7 @@
 <template>
-	<div class="headInfo">
-		<div class="textInfo">
+	<div class="headInfo" >
+	<!--  v-finger:swipe="swipe" -->
+		<div class="textInfo" v-finger:swipe="getback">
 			<span>
 				<img src="../assets/eye.png" alt="">
 				<b>网易新闻</b>
@@ -13,16 +14,11 @@
 				<!-- {{$route.params.newId}}
 				{{$route.params.newTitle}} -->
 		</div>
-		<theme-child :themeChildTitle='themeChildTitle' ></theme-child>
-		<div class="menu">
+		<theme-child :themeChildTitle='themeChildTitle' v-finger:swipe="swipe"></theme-child>
+		<div class="menu" id="xuanze">
 			<img src="../assets/jiantou.png" alt="">
 			<ul>
-				<li>{{title}}</li>
-				<li class="cliTab">{{title}}</li>
-				<li>{{title}}</li>
-				<li>{{title}}</li>
-				<li>{{title}}</li>
-				<li>{{title}}</li>
+				<li v-for="(item,index) in $store.state.tagList" v-if="$store.state.tagList[index].status==1" @click=say(item,index) :id="index" :style="{color:cur_index==index ? '#888888' : '#5b5b5b'}">{{item.titleTag}}</li>			
 			</ul>
 			<img src="../assets/east.png" alt="">
 		</div>
@@ -31,61 +27,111 @@
 </template>
 <script>
 import themeChild from './themeChild';
+import Vue from 'vue'
+import AlloyFinger from 'alloyfinger/alloy_finger' // 手势库
+import AlloyFingerVue from 'alloyfinger/vue/alloy_finger.vue'
+Vue.use(AlloyFingerVue, {
+  AlloyFinger
+})
+
 	export default{
 		name:'headInfo',
 		data(){
 			return{
+				cur_index:0,
 				title:"社会",
 				// info:'社会',
-				themeChildTitle:[
-					{
-						classify:1,
-						textId:1,
-						title1:'今日大事件之娱乐',
-						mesPic:'../static/info1.png',
-						mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
-					},
-					{
-						classify:1,
-						textId:2,
-						title1:'今日大事件之娱乐',
-						mesPic:'../static/info2.png',
-						mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
-					},
-					{
-						classify:2,
-						textId:23,
-						title1:'今日大事件之社会',
-						mesPic:'../static/info3.png',
-						mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
-					},
-					{
-						classify:3,
-						textId:123,
-						title1:'今日大事件之科技',
-						mesPic:'../static/info3.png',
-						mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
-					},
-					{
-						classify:4,
-						textId:1234,
-						title1:'今日大事件之教育',
-						mesPic:'../static/info3.png',
-						mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
-					},
-					{
-						classify:6,
-						textId:12345,
-						title1:'今日大事件之shouji',
-						mesPic:'../static/info3.png',
-						mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
-					}
-				]
+				themeChildTitle:[]
+				// themeChildTitle:[
+				// 	{
+				// 		classify:1,
+				// 		textId:1,
+				// 		title1:'今日大事件之娱乐',
+				// 		mesPic:'../static/info1.png',
+				// 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大东今日大东今日大今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
+				// 	},
+				// 	{
+				// 		classify:1,
+				// 		textId:2,
+				// 		title1:'今日大事件之娱乐',
+				// 		mesPic:'../static/info2.png',
+				// 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
+				// 	},
+				// 	{
+				// 		classify:2,
+				// 		textId:23,
+				// 		title1:'今日大事件之社会',
+				// 		mesPic:'../static/info3.png',
+				// 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
+				// 	},
+				// 	{
+				// 		classify:3,
+				// 		textId:123,
+				// 		title1:'今日大事件之科技',
+				// 		mesPic:'../static/info3.png',
+				// 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
+				// 	},
+				// 	{
+				// 		classify:4,
+				// 		textId:1234,
+				// 		title1:'今日大事件之教育',
+				// 		mesPic:'../static/info3.png',
+				// 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
+				// 	},
+				// 	{
+				// 		classify:6,
+				// 		textId:12345,
+				// 		title1:'今日大事件之shouji',
+				// 		mesPic:'../static/info3.png',
+				// 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
+				// 	}
+				// ]
 				
 			}
 		},
+		mounted(){
+			var themeChildTitle = JSON.parse(localStorage.getItem('themeChildTitle'));
+			if (themeChildTitle) {
+				this.$data.themeChildTitle = themeChildTitle
+			}else {
+				this.$http.get('http://118.89.156.82/yulin/newlist').then(function(res){ 
+		  		this.$data.themeChildTitle=res.body.themeChildTitle;
+		  		localStorage.setItem("themeChildTitle", JSON.stringify(this.$data.themeChildTitle)); 
+		      	}) 
+			}		 
+		},
 		components:{
 			themeChild
+		},
+		methods:{
+			say(item,index){
+				// console.log(item);
+				this.$router.push('/theme/'+item.classify+'/'+item.titleTag);
+				// 第一种方法
+				this.$data.cur_index = index;
+				// 第二种方法
+				// console.log(event.currentTarget.parentNode.length)
+				// for (var i = 0; i < event.currentTarget.parentNode.children.length; i++) {
+				// 	event.currentTarget.parentNode.children[i].className=" ";
+				// 	console.log("aaa")
+				// }
+				// event.currentTarget.className="cliTab";
+			},
+		    swipe: function(evt) {
+		    	var xuanze=document.getElementById('xuanze');
+		        // console.log("swipe" + evt.direction);
+		        if (evt.direction == "Left") {
+		        	xuanze.style.left=-100+'px';
+		        }else{
+		        	console.log("youyouyou");
+		        	xuanze.style.left=0+'px';
+		        }
+		    },
+		    getback:function(evt) {
+		        if (evt.direction == "Right") {
+		        	this.$router.push('/allTit');
+		        }
+		    }
 		}
 	}
 </script>
@@ -145,13 +191,14 @@ import themeChild from './themeChild';
 
 	.menu{
 		position: absolute;
-		display: none;
-		left: 0;
+		/*display: none;*/
+		left: -100px;
 		top: 0;
-		width: 26%;
+		width: 98px;
 		height: 100%;
 		background:#2e2e2e;
 		text-align: center;
+		transition: all 0.5s;
 	}
 	.menu img{
 		margin-top:20px;
