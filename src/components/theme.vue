@@ -39,53 +39,7 @@ Vue.use(AlloyFingerVue, {
 		data(){
 			return{
 				cur_index:0,
-				title:"社会",
-				// info:'社会',
 				themeChildTitle:[]
-				// themeChildTitle:[
-				// 	{
-				// 		classify:1,
-				// 		textId:1,
-				// 		title1:'今日大事件之娱乐',
-				// 		mesPic:'../static/info1.png',
-				// 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大东今日大东今日大今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
-				// 	},
-				// 	{
-				// 		classify:1,
-				// 		textId:2,
-				// 		title1:'今日大事件之娱乐',
-				// 		mesPic:'../static/info2.png',
-				// 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
-				// 	},
-				// 	{
-				// 		classify:2,
-				// 		textId:23,
-				// 		title1:'今日大事件之社会',
-				// 		mesPic:'../static/info3.png',
-				// 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
-				// 	},
-				// 	{
-				// 		classify:3,
-				// 		textId:123,
-				// 		title1:'今日大事件之科技',
-				// 		mesPic:'../static/info3.png',
-				// 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
-				// 	},
-				// 	{
-				// 		classify:4,
-				// 		textId:1234,
-				// 		title1:'今日大事件之教育',
-				// 		mesPic:'../static/info3.png',
-				// 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
-				// 	},
-				// 	{
-				// 		classify:6,
-				// 		textId:12345,
-				// 		title1:'今日大事件之shouji',
-				// 		mesPic:'../static/info3.png',
-				// 		mesText:'今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之京东今日大事件之.......'
-				// 	}
-				// ]
 				
 			}
 		},
@@ -123,7 +77,7 @@ Vue.use(AlloyFingerVue, {
 		        if (evt.direction == "Left") {
 		        	xuanze.style.left=-100+'px';
 		        }else{
-		        	console.log("youyouyou");
+		        	// console.log("youyouyou");
 		        	xuanze.style.left=0+'px';
 		        }
 		    },

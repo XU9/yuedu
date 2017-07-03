@@ -1,9 +1,9 @@
 <template>
 		<div class="subsyance">		
 		<div v-for='item in themeChildTitle'>
-			<div class="message" v-if="item.classify==$route.params.classify" @click="totextnew(item)">			
-				<img v-bind:src='item.mesPic' alt="">
-				<p >{{item.title1}}</p>
+			<div class="message" v-if="item.classify==$route.params.classify" @click="totextnew(item)">	
+				<p>{{item.title1}}</p>		
+				<img v-bind:src='item.mesPic' alt="">				
 				<span>{{item.mesText}}</span>
 			</div>
 		</div>
@@ -49,15 +49,18 @@
 
 	}
 	.subsyance p{
-		margin-left: 10px;
-		margin-top:2px;
+		width: 100%;
+		margin-bottom:5px;
+		margin-top:-6px;
 		float: left;
 		color:#7a7a7a;
-		font-size: 1.1em;		
+		font-size: 1em;
+		text-align: center;
+		/*border:1px solid red;		*/
 	}
 	.subsyance span{
 		width: 56%;
-		height: 64px;
+		height: 94px;
 		/*border:1px solid red;*/
 		margin-top: 1%;
 		margin-left: 10px;

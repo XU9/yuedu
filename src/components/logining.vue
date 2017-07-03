@@ -2,7 +2,8 @@
 	<div class="bgcolor" style="background:url('./static/bgColor.png');background-size:100% 100%;">
 		<span class="title">乐读</span>
 		<div class="titPic">
-			<img v-bind:src="imgPic" alt="">
+			<!-- <img v-bind:src="imgPic" alt=""> -->
+			<img src="https://img.alicdn.com/imgextra/i1/1750978869/TB2mx8vzYJmpuFjSZFwXXaE4VXa_!!1750978869.png" alt="">
 		</div>
 		<div class="quan"></div>
 		<div class="text">

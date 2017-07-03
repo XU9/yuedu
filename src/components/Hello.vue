@@ -4,7 +4,10 @@
       <span>{{ msg }}</span>
     </div>
     <div class="imgPic">
-      <img v-bind:src="imgsrc" alt="">
+      <!-- <img v-bind:src="imgsrc" alt=""> -->
+      <img src="https://img.alicdn.com/imgextra/i1/1750978869/TB2mx8vzYJmpuFjSZFwXXaE4VXa_!!1750978869.png
+  " alt="">
+      <!-- {{$store.state.persons.imgSrc}} -->
     </div>
     <form action="" class="form">
       <input class="inp inp1" v-model="username" placeholder="input usernaem" style="background: url('./static/userImg.png') no-repeat 20px 14px; ">
@@ -21,11 +24,12 @@ export default {
   data () {
     return {
       msg: '乐读',
-      imgsrc:'../static/logo.png',
+      // imgsrc:'',
       username:"",
       password:""
     }
-  }
+  },
+
 }
 </script>
 

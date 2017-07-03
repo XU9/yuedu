@@ -1,8 +1,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import VueResource from 'vue-resource';  
-Vue.use(Vuex)
 Vue.use(VueResource) 
+
+Vue.use(Vuex)
+
 
 const state={
 	count:0,
@@ -10,20 +12,35 @@ const state={
 	See:0,
 	del:0,
 	tagList:[],
+	// persons:'',
 
 }
 
-var tagList1 = JSON.parse(localStorage.getItem('tagList'));
-if (tagList1) {
-	state.tagList = tagList1
-	}else {
-		this.$http.get('http://118.89.156.82/yulin/taglist').then(function(res){ 
-			state.tagList=res.body.tagList;
-			localStorage.setItem("tagList", JSON.stringify(state.tagList)); 
-	  	}) 
-	}
+var tagList = JSON.parse(localStorage.getItem('tagList'));
+if (tagList) {
+state.tagList = tagList
+}else {
+	Vue.http.get('http://118.89.156.82/yulin/taglist',{}).then(function(res){ 
+		state.tagList=res.body.tagList;
+		localStorage.setItem("tagList", JSON.stringify(state.tagList)); 
+  	}) 
+};
+
+// var persons = JSON.parse(localStorage.getItem('persons'));
+// 	if (persons) {
+// 		state.persons = persons
+// 	}else {
+// 		Vue.http.get('http://118.89.156.82/yulin/person').then(function(res){ 
+//   		state.persons=res.body.persons;
+//   		localStorage.setItem("persons", JSON.stringify(state.persons)); 
+//       	}) 
+// 	};
+
+
+
 
 const getters={
+
 	count:function(state){
 		state.count=0;
 		// state.tagList=JSON.parse(localStorage.getItem('tagList'));

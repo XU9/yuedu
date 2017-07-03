@@ -12,7 +12,7 @@
 					</span>
 				</div>
 				<div class="infoR">
-					<img :src="weaterImg" alt="">
+					<img src="../assets/weater.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -49,13 +49,13 @@ import	titleTag from './allTag'
 		data(){
 			return{
 				persons:{
-					imgSrc:'../static/logo.png',
-					name:'Guowc',
-					job:"Web Designer",
-					email:"fox@Gmil.com",
+					// imgSrc:'https://img.alicdn.com/imgextra/i1/1750978869/TB2mx8vzYJmpuFjSZFwXXaE4VXa_!!1750978869.png',
+					// name:'Guowc',
+					// job:"Web Designer",
+					// email:"fox@Gmil.com",
 				},
 			
-				weaterImg:'../static/weater.png',
+				// weaterImg:'../static/weater.png',
 				// number:3,
 				tagList:[]
 			
@@ -69,6 +69,15 @@ import	titleTag from './allTag'
 				this.$http.get('http://118.89.156.82/yulin/taglist').then(function(res){ 
 		  		this.$data.tagList=res.body.tagList;
 		  		localStorage.setItem("tagList", JSON.stringify(this.$data.tagList)); 
+		      	}) 
+			};
+			var persons = JSON.parse(localStorage.getItem('persons'));
+			if (persons) {
+				this.$data.persons = persons
+			}else {
+				this.$http.get('http://118.89.156.82/yulin/person').then(function(res){ 
+		  		this.$data.persons=res.body.persons;
+		  		localStorage.setItem("persons", JSON.stringify(this.$data.persons)); 
 		      	}) 
 			}
 		 

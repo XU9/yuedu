@@ -33,7 +33,7 @@
 		margin:0 auto;
 	}
 	.theNew p{		
-		font-size: 2em;		
+		font-size: 1em;		
 		letter-spacing: 4px;
 		line-height: 24px;
 		padding-bottom: 20px;
